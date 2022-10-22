@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% load imagekit %}
+{% block content %}
+  <div>
+    {% thumbnail "400 x 400" article.image as thumb %}
+    <img src="{{ thumb.url }}">
+  </div>
+  <div>
+    <img src=" {{ article.image.url }}" alt="" width="{{article.image.width}}">
+  </div>
+{% endblock content %}

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .forms import CreateForm
+from .models import Article
 
 # Create your views here.
 def create(request):
@@ -16,3 +17,7 @@ def create(request):
         "forms" : forms,
     }
     return render(request, "uploads/create.html", context)
+
+def detail(request, article_pk):
+    article = Article.objects.get(pk=article_pk)
+    return render(request, "uploads/detail.html", {"article" : article})
