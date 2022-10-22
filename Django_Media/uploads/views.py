@@ -21,3 +21,8 @@ def create(request):
 def detail(request, article_pk):
     article = Article.objects.get(pk=article_pk)
     return render(request, "uploads/detail.html", {"article" : article})
+
+def delete(request, article_pk):
+    article = Article.objects.get(pk=article_pk)
+    article.delete()
+    return render(request, "base.html")
